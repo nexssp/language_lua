@@ -6,7 +6,7 @@ languageConfig.url = "https://www.lua.org";
 languageConfig.extensions = [".lua"];
 languageConfig.builders = {};
 languageConfig.compilers = {
-  php7: {
+  lua: {
     install: "scoop install lua-for-windows",
     command: "lua",
     args: "<file>",
@@ -15,19 +15,19 @@ languageConfig.compilers = {
 };
 languageConfig.errors = require("./nexss.lua.errors");
 languageConfig.languagePackageManagers = {
-  npm: {
-    installation: "PowerShell.exe -File installComposer.ps1",
+  luapm: {
+    installation: "PowerShell.exe -File installLuaPackageManager.ps1",
     messageAfterInstallation: "",
-    installed: "composer installed",
-    search: "composer search",
-    install: "composer require",
-    uninstall: "composer remove",
-    help: "composer",
-    version: "composer version",
+    installed: "luapm installed",
+    search: "luapm search",
+    install: "luapm require",
+    uninstall: "luapm remove",
+    help: "luapm",
+    version: "luapm version",
     init: () => {},
     // if command not found in specification
     // run directly on package manager
-    else: "composer <default> <args>"
+    else: "luapm"
   }
 };
 
