@@ -1,4 +1,6 @@
 module.exports = {
-  "ModuleNotFoundError: No module named '(.*?)'":
-    "nexss install py <module> OR pip3 install <module>"
+  "attempt to call global '(.*?)'":
+    "'<found1>' function seems to be not found.",
+  "attempt to index global '(.*?)'":
+    "Variable '<found1>' seems to not exists. Maybe is misspelled ? or undefined before use?"
 };
