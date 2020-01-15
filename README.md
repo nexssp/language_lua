@@ -1,6 +1,6 @@
 # Lua implementation for Nexss PROGRAMMER
 
-Lua users please add your content here.
+To Install Nexss Programmer please go to [Nexss Programmer CLI](https://github.com/nexssp/cli#readme) for more information.
 
 ## Links
 
