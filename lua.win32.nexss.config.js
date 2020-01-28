@@ -6,11 +6,25 @@ languageConfig.url = "https://www.lua.org";
 languageConfig.extensions = [".lua"];
 languageConfig.builders = {};
 languageConfig.compilers = {
-  lua: {
+  lua53: {
+    install: "scoop install lua",
+    // switch: "scoop reset lua", // If not exists install will be replaced by reset command
+    command: "lua",
+    args: "<file>",
+    templates: `templates53`
+  },
+  // lua54: {
+  //   install: `Powershell.exe -ExecutionPolicy Bypass -File ${__dirname}/install/installLua54.ps1`,
+  //   switch: `Powershell.exe -ExecutionPolicy Bypass -File ${__dirname}/install/switchToLua54.ps1`,
+  //   command: "lua",
+  //   args: "<file>",
+  //   template: `templates54`
+  // },
+  lua51: {
     install: "scoop install lua-for-windows",
     command: "lua",
     args: "<file>",
-    help: ``
+    templates: `templates`
   }
 };
 languageConfig.errors = require("./nexss.lua.errors");
@@ -23,7 +37,7 @@ languageConfig.languagePackageManagers = {
     install: "luarocks install",
     uninstall: "luarocks remove",
     help: "luarocks",
-    version: "luarocks version",
+    version: "lua -v",
     init: () => {},
     // if command not found in specification
     // run directly on package manager
