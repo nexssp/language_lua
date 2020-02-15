@@ -3,6 +3,13 @@ languageConfig.title = "Lua";
 languageConfig.description =
   "Lua is a powerful, efficient, lightweight, embeddable scripting language. It supports procedural programming, object-oriented programming, functional programming, data-driven programming, and data description.";
 languageConfig.url = "https://www.lua.org";
+languageConfig.founders = [
+  "Roberto Lerusalimschy",
+  "Waldemar Celes",
+  "Luiz Henrique de Figueiredo"
+];
+languageConfig.developers = ["PUC-Rio"];
+languageConfig.years = ["1993"];
 languageConfig.extensions = [".lua"];
 languageConfig.builders = {};
 languageConfig.compilers = {

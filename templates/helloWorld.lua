@@ -6,7 +6,7 @@ local NexssStdin = io.read()
 local parsedJson = json.decode(NexssStdin)
 
 -- Modify Data
-parsedJson['Hello from Lua'] = _VERSION ..  "!"
+parsedJson['HelloFromLua'] = _VERSION ..  "!"
 
 -- parsedJson['test'] = "test"
 
