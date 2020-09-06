@@ -1,4 +1,7 @@
-let languageConfig = Object.assign({}, require("../config.win32"));
+let languageConfig = Object.assign(
+  {},
+  require(`../config.${process.platform}`)
+);
 languageConfig.title = "Lua";
 languageConfig.description =
   "Lua is a powerful, efficient, lightweight, embeddable scripting language. It supports procedural programming, object-oriented programming, functional programming, data-driven programming, and data description.";
@@ -6,7 +9,7 @@ languageConfig.url = "https://www.lua.org";
 languageConfig.founders = [
   "Roberto Lerusalimschy",
   "Waldemar Celes",
-  "Luiz Henrique de Figueiredo"
+  "Luiz Henrique de Figueiredo",
 ];
 languageConfig.developers = ["PUC-Rio"];
 languageConfig.years = ["1993"];
@@ -18,7 +21,7 @@ languageConfig.compilers = {
     // switch: "scoop reset lua", // If not exists install will be replaced by reset command
     command: "lua",
     args: "<file>",
-    templates: `templates53`
+    templates: `templates53`,
   },
   // lua54: {
   //   install: `Powershell.exe -ExecutionPolicy Bypass -File ${__dirname}/install/installLua54.ps1`,
@@ -31,8 +34,8 @@ languageConfig.compilers = {
     install: "scoop install lua-for-windows",
     command: "lua",
     args: "<file>",
-    templates: `templates`
-  }
+    templates: `templates`,
+  },
 };
 languageConfig.errors = require("./nexss.lua.errors");
 languageConfig.languagePackageManagers = {
@@ -48,8 +51,8 @@ languageConfig.languagePackageManagers = {
     init: () => {},
     // if command not found in specification
     // run directly on package manager
-    else: "luarocks"
-  }
+    else: "luarocks",
+  },
   // TODO: Add luadist
   // luadist: {
   //   installation: "PowerShell.exe -File installLuaDist.ps1",
