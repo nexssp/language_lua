@@ -1,8 +1,9 @@
 let languageConfig = Object.assign({}, require("./lua.win32.nexss.config"));
-let sudo = "";
+let sudo = "sudo ";
 if (process.getuid && process.getuid() === 0) {
-  sudo = "sudo ";
+  sudo = "";
 }
+
 languageConfig.compilers = {
   lua53: {
     install: `${sudo}apt install -y lua5.3`,
@@ -12,5 +13,25 @@ languageConfig.compilers = {
     templates: `templates53`,
   },
 };
+
+const {
+  replaceCommandByDist,
+  dist,
+} = require(`${process.env.NEXSS_SRC_PATH}/lib/osys`);
+
+const distName = dist();
+languageConfig.dist = distName;
+
+// TODO: Later to cleanup this config file !!
+switch (distName) {
+  case "Arch Linux":
+    languageConfig.compilers.lua53.install = `${sudo}pacman -Sy --noconfirm lua53`;
+    break;
+  default:
+    languageConfig.compilers.lua53.install = replaceCommandByDist(
+      languageConfig.compilers.lua53.install
+    );
+    break;
+}
 
 module.exports = languageConfig;
