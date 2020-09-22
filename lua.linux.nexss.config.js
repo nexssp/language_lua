@@ -17,6 +17,7 @@ languageConfig.compilers = {
 const {
   replaceCommandByDist,
   dist,
+  version,
 } = require(`${process.env.NEXSS_SRC_PATH}/lib/osys`);
 
 const distName = dist();
@@ -24,6 +25,16 @@ languageConfig.dist = distName;
 
 // TODO: Later to cleanup this config file !!
 switch (distName) {
+  case "Oracle Linux Server":
+    const distVersion = version() * 1; // *1 converts to number
+    if (distVersion >= 8) {
+      languageConfig.compilers.lua53.install = `${sudo}apt install -y lua5.*`;
+      languageConfig.compilers.lua53.command = "lua";
+    } else {
+      languageConfig.compilers.lua53.install = `${sudo}apt install -y lua5.*`;
+      languageConfig.compilers.lua53.command = "lua5.3";
+    }
+    break;
   case "Arch Linux":
     languageConfig.compilers.lua53.install = `${sudo}pacman -Sy --noconfirm lua53`;
     break;
