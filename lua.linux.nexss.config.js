@@ -28,10 +28,10 @@ switch (distName) {
   case "Oracle Linux Server":
     const distVersion = version() * 1; // *1 converts to number
     if (distVersion >= 8) {
-      languageConfig.compilers.lua53.install = `${sudo}dnf install -y lua5.*`;
+      languageConfig.compilers.lua53.install = `${sudo}dnf install -y lua`;
       languageConfig.compilers.lua53.command = "lua";
     } else {
-      languageConfig.compilers.lua53.install = `${sudo}yum install -y lua5.*`;
+      languageConfig.compilers.lua53.install = `${sudo}yum   install -y lua5.*`;
       languageConfig.compilers.lua53.command = "lua5.3";
     }
     break;
