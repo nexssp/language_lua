@@ -6,7 +6,7 @@ if (process.getuid && process.getuid() === 0) {
 
 languageConfig.compilers = {
   lua53: {
-    install: `${sudo}apt install -y lua5.3`,
+    install: `${sudo}apt install -y lua5.*`,
     // switch: "scoop reset lua", // If not exists install will be replaced by reset command
     command: "lua5.3",
     args: "<file>",
