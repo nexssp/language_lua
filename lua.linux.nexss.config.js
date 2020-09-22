@@ -38,6 +38,10 @@ switch (distName) {
   case "Arch Linux":
     languageConfig.compilers.lua53.install = `${sudo}pacman -Sy --noconfirm lua53`;
     break;
+  case "Alpine Linux":
+    languageConfig.compilers.lua53.install = `${sudo}apk add lua`;
+    languageConfig.compilers.lua53.command = "lua";
+    break;
   default:
     languageConfig.compilers.lua53.install = replaceCommandByDist(
       languageConfig.compilers.lua53.install
