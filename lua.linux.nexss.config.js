@@ -25,6 +25,10 @@ languageConfig.dist = distName;
 
 // TODO: Later to cleanup this config file !!
 switch (distName) {
+  case "Amazon Linux":
+    languageConfig.compilers.lua53.install = `${sudo}yum install -y lua`;
+    languageConfig.compilers.lua53.command = "lua";
+    break;
   case "Oracle Linux Server":
     const distVersion = version() * 1; // *1 converts to number
     if (distVersion >= 8) {
