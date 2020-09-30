@@ -24,6 +24,10 @@ languageConfig.dist = distName;
 
 // TODO: Later to cleanup this config file !!
 switch (distName) {
+  case "Debian GNU/Linux":
+    languageConfig.compilers.lua53.install = `${sudo}yum install -y lua5.3`;
+    languageConfig.compilers.lua53.command = "lua5.3";
+    break;
   case "Amazon Linux":
     languageConfig.compilers.lua53.install = `${sudo}yum install -y lua`;
     languageConfig.compilers.lua53.command = "lua";
