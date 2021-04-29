@@ -1,4 +1,4 @@
-# Lua implementation for Nexss PROGRAMMER
+# Lua implementation for the Nexss PROGRAMMER
 
 To Install Nexss Programmer please go to [Nexss Programmer CLI](https://github.com/nexssp/cli#readme) for more information.
 
@@ -7,6 +7,7 @@ To Install Nexss Programmer please go to [Nexss Programmer CLI](https://github.c
 ### Switch between **Lua** versions
 
 ```sh
+nexss lua install --progress # installs lua with progress information
 nexss lua default compiler # Shows the list of available compilers or nexss lua compilers
 nexss lua default compiler lua53 # sets compiler to lua 5.3,
 nexss lua default compiler lua51 # sets compiler to lua 5.1
