@@ -4,10 +4,24 @@ const sudo = process.sudo;
 const distName = process.distro;
 languageConfig.dist = distName;
 
+let command = "lua";
+
+switch (distName) {
+  case process.distros.DEBIAN:
+  case process.distros.UBUNTU:
+    const ubuntuDistVersion = process.distroVersion * 1; // *1 converts to number
+    if (ubuntuDistVersion === 18) {
+      command = "lua5.3";
+    }
+    break;
+  default:
+    command = "lua";
+}
+
 languageConfig.compilers = {
   lua53: {
     install: `${sudo}apt install -y lua`,
-    command: "lua",
+    command,
     args: "<file>",
     templates: `templates53`,
   },
