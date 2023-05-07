@@ -7,7 +7,7 @@ function getInstaller() {
       return 'if test -f "src/json.lua"; then cd src ; mv json.lua ../json.lua ; cd .. ; fi;';
     default:
       console.error(`${process.platform} is not implemented.`);
-      break;
+      return ""
   }
 }
 
